@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Typography, TextField, MenuItem, Slider, Button, FormControl, InputLabel, Select } from '@mui/material';
 import background from '../assets/backgroundguy.jpg';
 
-function Select() {
+function UserSelect() {
   const [gender, setGender] = useState('');
   const [weight, setWeight] = useState(50);
   const [height, setHeight] = useState(150);
@@ -129,4 +129,4 @@ function Select() {
   );
 }
 
-export default Select;
+export default UserSelect;
