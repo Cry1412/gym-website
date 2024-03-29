@@ -42,7 +42,15 @@ const itemList = [
     {
         text: "Contact",
         to: "/contact"
-    }
+    },
+    {
+        text: "Signup",
+        to: "/signup" 
+    },
+    {
+        text: "Signup",
+        to: "/signup" 
+    },
 ];
 
 
