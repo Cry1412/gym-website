@@ -10,6 +10,7 @@ import SignUp from './pages/Signup';
 import List from './pages/List';
 import GymDetailPage from './pages/GymDetailPage';
 import ExerciseDetail from './pages/ExerciseDetail';
+import SignIn from './pages/Signin';
 //componentes
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
@@ -25,6 +26,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/userselect' element={<UserSelect />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/signin' element={<SignIn />} />
           <Route path='/list' element={<List />} />
           <Route path='/gymdetailpage' element={<GymDetailPage />} />
           <Route path='/exercises/:exerciseName' element={<ExerciseDetail />} />

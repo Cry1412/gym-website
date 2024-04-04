@@ -44,8 +44,8 @@ const itemList = [
         to: "/contact"
     },
     {
-        text: "Signup",
-        to: "/signup" 
+        text: "Signin",
+        to: "/signin" 
     },
     {
         text: "Signup",

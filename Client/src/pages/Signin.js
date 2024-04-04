@@ -15,18 +15,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
+export default function SignIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const userData = {
       username: formData.get('username'),
-      email: formData.get('email'),
       password: formData.get('password')
     };
 
     try {
-      const response = await fetch('http://localhost:2000/signup', {
+      const response = await fetch('http://localhost:2000/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,10 +34,11 @@ export default function SignUp() {
       });
 
       if (!response.ok) {
-        throw new Error('Đã xảy ra lỗi khi đăng ký');
+        throw new Error('Đăng nhập không thành công');
       }
 
-      console.log('Đăng ký thành công');
+      console.log('Đăng nhập thành công');
+      // Redirect or do other actions after successful sign in
     } catch (error) {
       console.error('Lỗi:', error.message);
     }
@@ -60,60 +60,50 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Sign in
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="username"
-                  label="User Name"
-                  name="username"
-                  autoComplete="username"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="User Name"
+              name="username"
+              autoComplete="username"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Sign In
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
               <Grid item>
-                <Link href="/signin" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/signup" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
