@@ -14,6 +14,7 @@ import SignIn from './pages/Signin';
 //componentes
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
+import CalendarPage from './pages/CalendarPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/list' element={<List />} />
           <Route path='/gymdetailpage' element={<GymDetailPage />} />
           <Route path='/exercises/:exerciseName' element={<ExerciseDetail />} />
+          <Route path='calendar' element={<CalendarPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
