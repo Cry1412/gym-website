@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors');
 const mysql = require('mysql2')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken'); 
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -47,9 +49,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Đăng ký người dùng
-app.post('/signup', (req, res) => {
+app.post('/signup', async(req, res) => {
   const { username, email, password } = req.body;
-
+  const hashedPassword = await bcrypt.hash(password, 10);
   // Kiểm tra xem các trường đã được cung cấp chưa
   if (!username || !email || !password) {
     return res.status(400).json({ message: 'Vui lòng cung cấp tên đăng nhập, email và mật khẩu' });
@@ -65,7 +67,7 @@ app.post('/signup', (req, res) => {
       return res.status(409).json({ message: 'Tên đăng nhập hoặc email đã được sử dụng' });
     } else {
       // Thêm người dùng vào database
-      db.query('INSERT INTO users (Username, Email, Password, Create_time) VALUES (?, ?, ?, CURRENT_TIMESTAMP)', [username, email, password], (err, result) => {
+      db.query('INSERT INTO users (Username, Email, Password, Create_time) VALUES (?, ?, ?, CURRENT_TIMESTAMP)', [username, email, hashedPassword], (err, result) => {
         if (err) {
           throw err;
         }
@@ -75,7 +77,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-app.post('/signin', (req, res) => {
+app.post('/signin', async (req, res) => {
   const { username, password } = req.body;
 
   // Kiểm tra xem các trường đã được cung cấp chưa
@@ -84,16 +86,76 @@ app.post('/signin', (req, res) => {
   }
 
   // Kiểm tra xem người dùng tồn tại trong cơ sở dữ liệu không
-  db.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, results) => {
+  db.query('SELECT * FROM users WHERE username = ?', [username], async (err, results) => {
     if (err) {
       throw err;
     }
 
     if (results.length === 0) {
       return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác' });
-    } else {
-      return res.status(200).json({ message: 'Đăng nhập thành công' });
     }
+
+    // Lấy mật khẩu đã hash từ cơ sở dữ liệu
+    const hashedPasswordFromDB = results[0].Password;
+    const User_ID = results[0].User_ID
+
+    // So sánh mật khẩu đã nhập với mật khẩu đã hash từ cơ sở dữ liệu
+    const passwordMatch = await bcrypt.compare(password, hashedPasswordFromDB);
+
+    const token = jwt.sign({ userId: User_ID }, 'your-secret-key', { 
+      expiresIn: '1h', 
+      }); 
+
+    if (passwordMatch) {
+      return res.status(200).json({ message: 'Đăng nhập thành công', token });
+    } else {
+      return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác' });
+    }
+  });
+});
+
+
+// app.post('/signin', (req, res) => {
+//   const { username, password } = req.body;
+
+//   // Kiểm tra xem các trường đã được cung cấp chưa
+//   if (!username || !password) {
+//     return res.status(400).json({ message: 'Vui lòng cung cấp tên đăng nhập và mật khẩu' });
+//   }
+
+//   // Kiểm tra xem người dùng tồn tại trong cơ sở dữ liệu không
+//   db.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, results) => {
+//     if (err) {
+//       throw err;
+//     }
+
+//     if (results.length === 0) {
+//       return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác' });
+//     } else {
+//       return res.status(200).json({ message: 'Đăng nhập thành công' });
+//     }
+//   });
+// });
+
+// app.get('/test', (req, res) => {
+//   // Thực hiện truy vấn SQL
+//   connection.query('SELECT e.Name FROM exercises_in_dayset ed JOIN Exercises e ON ed.Exercise_ID = e.Exercise_ID WHERE ed.Dayset_ID = 1', (err, results) => {
+//     if (err) {
+//       console.error('Lỗi truy vấn SQL:', err);
+//       res.status(500).send('Đã xảy ra lỗi khi thực hiện truy vấn SQL');
+//       return;
+//     }
+
+//     // Gửi kết quả trả về dưới dạng JSON
+//     res.json(results);
+//   });
+// });
+
+app.get("/test", (req, res) => {
+  const sql = "SELECT e.Name FROM exercises_in_dayset ed JOIN Exercises e ON ed.Exercise_ID = e.Exercise_ID WHERE ed.Dayset_ID = 1";
+  db.query(sql, (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
   });
 });
 

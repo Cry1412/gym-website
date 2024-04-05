@@ -1,7 +1,24 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [exercises, setExercises] = useState([]);
+
+  useEffect(() => {
+    // Function để lấy dữ liệu từ API và cập nhật vào state exercises
+    const fetchExercises = async () => {
+      try {
+        const response = await axios.get('http://localhost:2000/test');
+        setExercises(response.data);
+      } catch (error) {
+        console.error('Error fetching exercises:', error);
+      }
+    };
+
+    fetchExercises(); // Gọi function lấy dữ liệu khi component được render
+  }, []); // useEffect sẽ chỉ được gọi một lần sau khi component được render
 
   const handleNextMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
@@ -42,25 +59,66 @@ const Calendar = () => {
     window.location.href = url;
   };
 
+  const renderExercises = () => {
+    // Thay thế mảng Exercises bằng dữ liệu từ state exercises
+    return exercises.map((exercise, index) => (
+      <div key={index} className="exercise" onClick={() => handleDayClick(index)}>
+        {exercise.Name}
+      </div>
+    ));
+  };
+
+  const handleDayClick = (dayIndex) => {
+    // You can handle day click here, if needed
+    console.log(`yay`);
+  };
+
   return (
-    <div>
+    <div className="container">
       <style>
         {`
+        .container {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 50px; /* Thêm khoảng trống ở trên */
+        }
+          .container {
+            display: flex;
+            justify-content: space-between;
+          }
+
           .calendar-container {
-            text-align: center;
-            font-family: Arial, sans-serif;
+            flex: 1;
+            margin-right: 10px;
+          }
+
+          .exercise-container {
+            flex: 1;
+          }
+
+          .exercise-container {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .calendar-container {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            border-radius: 10px;
           }
 
           .calendar-header {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 10px;
           }
 
           .calendar-header button {
             background-color: transparent;
-            border: none;
+            border: 1px solid #ccc;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 1.2rem;
             margin: 0 10px;
@@ -71,14 +129,14 @@ const Calendar = () => {
             grid-template-columns: repeat(7, 1fr);
             grid-gap: 5px;
             max-width: 400px;
-            margin: 0 auto;
           }
 
-          .calendar-day {
+          .exercise {
             padding: 10px;
             border: 1px solid #ccc;
             cursor: pointer;
             border-radius: 10px;
+            margin-bottom: 5px;
           }
 
           .empty {
@@ -87,6 +145,11 @@ const Calendar = () => {
 
           .calendar-day:hover {
             background-color: #f0f0f0;
+          }
+          .calendar-day {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align:center;
           }
         `}
       </style>
@@ -100,6 +163,9 @@ const Calendar = () => {
         <div className="calendar">
           {renderCalendar()}
         </div>
+      </div>
+      <div className="exercise-container">
+        {renderExercises()}
       </div>
     </div>
   );

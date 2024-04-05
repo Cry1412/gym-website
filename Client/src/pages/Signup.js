@@ -12,10 +12,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -37,7 +39,7 @@ export default function SignUp() {
       if (!response.ok) {
         throw new Error('Đã xảy ra lỗi khi đăng ký');
       }
-
+      navigate("/signin")
       console.log('Đăng ký thành công');
     } catch (error) {
       console.error('Lỗi:', error.message);
