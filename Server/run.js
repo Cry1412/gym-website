@@ -32,7 +32,7 @@ db.connect((err) => {
 
 function convertExerciseName(urlName) {
   // Loại bỏ dấu gạch dưới và chuyển đổi các chữ cái thành chữ in hoa
-  return urlName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  return urlName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
 app.get("/exercises/:exerciseName", (req, res) => {
