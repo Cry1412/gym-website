@@ -40,9 +40,10 @@ export default function SignIn() {
       }
       
       console.log('Đăng nhập thành công');
-
-      const token = response.token
+      const responseData = await response.json()
+      const token = responseData.token
       localStorage.setItem('token', token);
+      console.log(responseData)
       navigate("/")
       // Redirect or do other actions after successful sign in
     } catch (error) {

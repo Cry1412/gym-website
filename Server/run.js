@@ -102,7 +102,7 @@ app.post('/signin', async (req, res) => {
     // So sánh mật khẩu đã nhập với mật khẩu đã hash từ cơ sở dữ liệu
     const passwordMatch = await bcrypt.compare(password, hashedPasswordFromDB);
 
-    const token = jwt.sign({ userId: User_ID }, 'your-secret-key', { 
+    const token = jwt.sign({ User_ID: User_ID }, '123', { 
       expiresIn: '1h', 
       }); 
 
@@ -110,6 +110,40 @@ app.post('/signin', async (req, res) => {
       return res.status(200).json({ message: 'Đăng nhập thành công', token });
     } else {
       return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác' });
+    }
+  });
+});
+
+function authenticateToken(req, res, next) {
+  const token = req.headers['authorization'];
+  if (token == null) return res.sendStatus(401); // Unauthorized
+
+  jwt.verify(token, '123', (err, user) => {
+    if (err) return res.sendStatus(403); // Forbidden
+    req.user = user;
+    next(); // Cho phép tiếp tục xử lý request
+  });
+}
+
+// Sử dụng middleware authenticateToken khi cần xác thực
+app.post('/create-month-exercises', authenticateToken, (req, res) => {
+  // Dùng req.user để lấy thông tin user đã xác thực từ token
+  const userId = req.user.User_ID;
+  
+  // Lấy ngày hiện tại
+  const currentDate = new Date().toISOString().slice(0, 10); // Lấy ngày hiện tại dưới dạng 'YYYY-MM-DD'
+
+  // Tạo câu truy vấn SQL
+  const sqlQuery = `INSERT INTO user_tracking (User_ID, Monthset_ID, Starting_date) VALUES (${userId}, 1, '${currentDate}')`;
+
+  // Thực thi câu truy vấn vào cơ sở dữ liệu
+  db.query(sqlQuery, (err, result) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      console.log("New record inserted successfully.");
+      res.status(200).send("New record inserted successfully.");
     }
   });
 });

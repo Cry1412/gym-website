@@ -53,6 +53,8 @@ export default function Navbar() {
     const token = localStorage.getItem('token');
     const isLoggedIn = !!token;
     const navigate = useNavigate()
+    
+    //console.log(isLoggedIn)
 
 
     const handleLogoutClick = () => {
