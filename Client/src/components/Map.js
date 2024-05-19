@@ -7,28 +7,27 @@ function Map({ address }) {
 
   useEffect(() => {
     const loadScripts = async () => {
-      const polyfillScript = document.createElement('script');
-      polyfillScript.src = 'https://polyfill.io/v3/polyfill.min.js?features=default';
-      document.head.appendChild(polyfillScript);
-
-      const markerClustererScript = document.createElement('script');
-      markerClustererScript.src = 'https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js';
-      document.head.appendChild(markerClustererScript);
-
-      const googleMapsApiScript = document.createElement('script');
-      googleMapsApiScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBksaBNHIG1lfz9_rc7--1dj6VQ5UTkEYQ&loading=async&libraries=places&callback=initMap`;
-      googleMapsApiScript.async = true;
-      googleMapsApiScript.defer = true;
-      document.head.appendChild(googleMapsApiScript);
-
-      
-
-      window.initMap = initMap;
-
-      
-
-      window.initMap = initMap;
+      if (!window.google) {
+        const polyfillScript = document.createElement('script');
+        polyfillScript.src = 'https://polyfill.io/v3/polyfill.min.js?features=default';
+        document.head.appendChild(polyfillScript);
+    
+        const markerClustererScript = document.createElement('script');
+        markerClustererScript.src = 'https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js';
+        document.head.appendChild(markerClustererScript);
+    
+        const googleMapsApiScript = document.createElement('script');
+        googleMapsApiScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD04tA6vhD43ywZgiG7FiisEKWuSXwDJiQ&loading=async&libraries=places&callback=initMap`;
+        googleMapsApiScript.async = true;
+        googleMapsApiScript.defer = true;
+        document.head.appendChild(googleMapsApiScript);
+    
+        window.initMap = initMap;
+      } else {
+        initMap();
+      }
     };
+    
 
     loadScripts();
 
@@ -65,7 +64,7 @@ function Map({ address }) {
           button.addEventListener('click', () => {
             const placeName = button.getAttribute('data-place-name');
             // Chuyển hướng đến /place-name
-            window.location.href = `/${placeName}`;
+            window.location.href = `/gyms/${placeName}`;
           });
         });
       });
@@ -115,7 +114,7 @@ function Map({ address }) {
     const googleMaps = await window.google.maps;
     //const directionsService = new googleMaps.DirectionsService();
     const map = new googleMaps.Map(document.getElementById('map'), {
-      center: { lat: 48.13641, lng: 11.57754 },
+      center: { lat: 21.0221987, lng: 105.8172885 },
       // center: { address },
       zoom: 16,
       fullscreenControl: false,
@@ -125,6 +124,7 @@ function Map({ address }) {
     setMap(map);
     // new window.markerClusterer.MarkerClusterer({ markers, map });
   };
+  
 
 
   return (
@@ -135,112 +135,3 @@ function Map({ address }) {
 }
 
 export default Map;
-
-// const londonMarker = new googleMaps.Marker({
-        //   position: { lat: 51.50136, lng: -0.14191 },
-        //   map: map
-        // });
-
-        // londonMarker.addListener("click", () => {
-        //   map.setCenter(londonMarker.getPosition());
-
-        //   const infowindow = new googleMaps.InfoWindow({
-        //     content: "<div><p>Hello!</p> </div>"
-        //   });
-
-        //   infowindow.open(map, londonMarker);
-        // });
-
-        // // Add other markers and listeners...
-        // const italianMarker = new googleMaps.Marker({
-        //   position: { lat: 41.88989, lng: 12.49337 },
-        //   map: map
-        // });
-        
-        // italianMarker.addListener("click", () => {
-        //   map.setCenter(italianMarker.getPosition());
-        
-        //   const infowindow = new googleMaps.InfoWindow({
-        //     content: "<div><p>Ciao!</p> </div>"
-        //   });
-        
-        //   infowindow.open(map, italianMarker);
-        // });
-        
-        // const netherlandsMarker = new googleMaps.Marker({
-        //   position: { lat: 52.2277, lng: 6.89701 },
-        //   map: map
-        // });
-        
-        // netherlandsMarker.addListener("click", () => {
-        //   map.setCenter(netherlandsMarker.getPosition());
-        
-        //   const infowindow = new googleMaps.InfoWindow({
-        //     content: "<div><p>Hallo!</p></div>"
-        //   });
-        
-        //   infowindow.open(map, netherlandsMarker);
-        // });
-        
-        
-        // // Directions rendering...
-        // directionsService.route({
-        //   origin: { lat: 52.51628, lng: 13.3777 },
-        //   destination: { lat: 48.85824, lng: 2.2945 },
-        //   travelMode: googleMaps.DirectionsTravelMode.DRIVING
-        // }, (result, status) => {
-        //   if (status === 'OK') {
-        //     const directionsRenderer = new googleMaps.DirectionsRenderer({
-        //       suppressMarkers: true
-        //     });
-        //     directionsRenderer.setDirections(result);
-        //     const leg = result.routes[0].legs[0];
-        
-        //     // Add markers for the route
-        //     new googleMaps.Marker({
-        //       position: leg.start_location,
-        //       map: map
-        //     });
-        
-        //     new googleMaps.Marker({
-        //       position: leg.end_location,
-        //       map: map
-        //     });
-        //   } else {
-        //     window.alert('Directions request failed due to ' + status);
-        //   }
-        // });
-        // // Directions rendering...
-        // directionsService.route({
-        //   origin: { lat: 52.51628, lng: 13.3777 },
-        //   destination: { lat: 48.85824, lng: 2.2945 },
-        //   travelMode: googleMaps.DirectionsTravelMode.DRIVING
-        // }, (result, status) => {
-        //   if (status === 'OK') {
-        //     const directionsRenderer = new googleMaps.DirectionsRenderer({
-        //       suppressMarkers: true
-        //     });
-        //     directionsRenderer.setDirections(result);
-        //     const leg = result.routes[0].legs[0];
-        //     new googleMaps.Marker({
-        //       position: { lat: 52.51628, lng: 13.3777 },
-        //       map: map
-        //     });
-        //     new googleMaps.Marker({
-        //       position: { lat: 48.85824, lng: 2.2945 },
-        //       map: map
-        //     });
-        //   } else {
-        //     window.alert('Directions request failed due to ' + status);
-        //   }
-        // });
-
-        // const locations = [
-        //   { lat: 48.18485, lng: 16.31224 },
-        //   { lat: 48.20871, lng: 16.37265 },
-        //   { lat: 48.20681, lng: 16.36683 }
-        // ];
-
-        // const markers = locations.map((position, i) => {
-        //   return new googleMaps.Marker({ position });
-        // });

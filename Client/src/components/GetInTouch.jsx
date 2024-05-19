@@ -22,23 +22,20 @@ const GetInTouch = () => {
         >
             <Title 
             text={
-                'Contact us to buy property'
+                "Let's get BIG now"
                 } 
             textAlign={'center'}
             />
             <Paragraph 
             text={
-                'It is our commitment to ensure a professional and enjoyable \
-                new home buying experience for you. \
-                If you want to get a home to start living as a family in an \
-                area that you love click the button below.'
+                "Remember, every effort you put in at the gym is an investment in yourself and your future well-being. You've got this!"
             }
             maxWidth = {'sm'}
             mx={0}
             textAlign={'center'}
             />
             <Button component={Link} 
-            to={'/contact'}
+            to={'/signin'}
             variant="contained" 
             type="submit"
             size="medium"
@@ -56,7 +53,7 @@ const GetInTouch = () => {
                 }
             }}
             >
-                get in touch
+                Get Started Now!
             </Button>
  
         </Stack>

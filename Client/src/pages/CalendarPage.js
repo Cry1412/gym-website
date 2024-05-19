@@ -1,174 +1,134 @@
-
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import background from '../assets/backgroundguy.jpg';
+import { Container, Typography, List, ListItem, ListItemText, Card, CardContent } from '@mui/material';
 
-const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [exercises, setExercises] = useState([]);
+function Calendar1() {
+  const [date, setDate] = useState(new Date());
+  const [allExercises, setAllExercises] = useState([]);
+  const [selectedDayExercises, setSelectedDayExercises] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+  const [physical, setPhysical] = useState('8 reps x 3 sets'); // Add loading state
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // Function để lấy dữ liệu từ API và cập nhật vào state exercises
-    const fetchExercises = async () => {
-      try {
-        const response = await axios.get('http://localhost:2000/test');
-        setExercises(response.data);
-      } catch (error) {
-        console.error('Error fetching exercises:', error);
+    fetchAllExercises();
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      setSelectedDayExercises(getExercisesForDay(date));
+    }
+  }, [date, loading]); // Include loading in dependencies
+
+  const fetchAllExercises = async () => {
+    try {
+      const response = await fetch('http://localhost:2000/test2', {
+        method: 'POST',
+        headers: {
+          'Authorization': token,
+          'Content-Type': 'application/json'
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch exercises');
       }
-    };
-
-    fetchExercises(); // Gọi function lấy dữ liệu khi component được render
-  }, []); // useEffect sẽ chỉ được gọi một lần sau khi component được render
-
-  const handleNextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
-  };
-
-  const handlePrevMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
-  };
-
-  const renderCalendar = () => {
-    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    const daysInMonth = lastDayOfMonth.getDate();
-    const startingDay = firstDayOfMonth.getDay();
-
-    const calendar = [];
-
-    // Render empty cells for preceding days
-    for (let i = 0; i < startingDay; i++) {
-      calendar.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
+      const data = await response.json();
+      setAllExercises(data);
+      setLoading(false); // Set loading to false after data is fetched
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    // Render days of the month
-    for (let i = 1; i <= daysInMonth; i++) {
-      const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
-      calendar.push(
-        <div key={i} className="calendar-day" onClick={() => handleDateClick(date)}>
-          {i}
-        </div>
-      );
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:2000/checklogin', {
+        method: 'GET',
+        headers: {
+          'Authorization': token
+        }
+      });
+      const data = await response.json();
+      console.log(data)
+      if (data[0].Pushups == 'weak') setPhysical('8 reps x 3 sets')
+      else if (data[0].Pushups == 'normal') setPhysical('10 reps x 3 sets')
+      else if (data[0].Pushups == 'strong') setPhysical('12 reps x 3 sets')
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
-
-    return calendar;
   };
 
-  const handleDateClick = (date) => {
-    const url = `/events/${date}`;
-    window.location.href = url;
+  const handleDateChange = (newDate) => {
+    setDate(newDate);
+    if (!loading) {
+      setSelectedDayExercises(getExercisesForDay(newDate));
+    }
   };
 
-  const renderExercises = () => {
-    // Thay thế mảng Exercises bằng dữ liệu từ state exercises
-    return exercises.map((exercise, index) => (
-      <div key={index} className="exercise" onClick={() => handleDayClick(index)}>
-        {exercise.Name}
-      </div>
-    ));
-  };
-
-  const handleDayClick = (dayIndex) => {
-    // You can handle day click here, if needed
-    console.log(`yay`);
+  const getExercisesForDay = (selectedDate) => {
+    const selectedDateString = selectedDate.toISOString().split('T')[0];
+    return allExercises.filter((exercise) => exercise.Day_Name.startsWith(selectedDateString));
   };
 
   return (
-    <div className="container">
-      <style>
-        {`
-        .container {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 50px; /* Thêm khoảng trống ở trên */
-        }
-          .container {
-            display: flex;
-            justify-content: space-between;
-          }
-
-          .calendar-container {
-            flex: 1;
-            margin-right: 10px;
-          }
-
-          .exercise-container {
-            flex: 1;
-          }
-
-          .exercise-container {
-            display: flex;
-            flex-direction: column;
-          }
-
-          .calendar-container {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-          }
-
-          .calendar-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 10px;
-          }
-
-          .calendar-header button {
-            background-color: transparent;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin: 0 10px;
-          }
-
-          .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-gap: 5px;
-            max-width: 400px;
-          }
-
-          .exercise {
-            padding: 10px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-bottom: 5px;
-          }
-
-          .empty {
-            visibility: hidden;
-          }
-
-          .calendar-day:hover {
-            background-color: #f0f0f0;
-          }
-          .calendar-day {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            text-align:center;
-          }
-        `}
-      </style>
-      
-      <div className="calendar-container">
-        <div className="calendar-header">
-          <button onClick={handlePrevMonth}>&lt;</button>
-          <h1>{currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h1>
-          <button onClick={handleNextMonth}>&gt;</button>
+    
+    <Container>
+      <div style={{ marginTop: '20px' }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Here is the workout plan we setup for you
+        </Typography>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+        <div style={{ flex: 1 }}>
+          <Typography variant="h4" gutterBottom marginLeft={'40px'}>
+            Exercise Calendar
+          </Typography>
+          <div style={{ marginBottom: '20px' }}>
+            <Calendar onChange={handleDateChange} value={date} />
+          </div>
         </div>
-        <div className="calendar">
-          {renderCalendar()}
+        <div style={{ flex: 1, marginLeft: '20px' }}>
+          <Typography variant="h6" gutterBottom>
+            Exercises on {date.toDateString()}
+          </Typography>
+          {loading ? (
+            <Typography>Loading...</Typography>
+          ) : selectedDayExercises.length === 0 ? (
+            <Typography>No Available Exercises</Typography>
+          ) : (
+            selectedDayExercises.map((exercise, index) => (
+              <Link key={index} to={`/exercises/${exercise.Exercise_Name}`}>
+                <Card style={{
+    marginBottom: '10px', 
+    border: '1px solid #ccc', 
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    }}>
+    <CardContent>
+        <Typography variant="body1">
+            {exercise.Exercise_Name}
+        </Typography>
+    </CardContent>
+    <CardContent>
+        <Typography variant="body1">
+            {physical}
+        </Typography>
+    </CardContent>
+</Card>
+              </Link>
+            ))
+          )}
         </div>
       </div>
-      <div className="exercise-container">
-        {renderExercises()}
-      </div>
-    </div>
+    </Container>
   );
-};
+}
 
-export default Calendar;
+export default Calendar1;

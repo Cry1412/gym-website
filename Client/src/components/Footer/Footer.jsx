@@ -30,62 +30,10 @@ const Footer = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '43vh' }}>
       <BoxRow component="footer" sx={{ py: 4, px: 2, mt: 'auto' }}>
         <StackColumn>
-          <FooterTitle text={'address'} />
-          <FooterLink text={'15th Louis St, london 92382, eng'} />
-          <FooterLink text={'25 999-345-10800'} />
-          <FooterLink text={'info@housesales.com'} />
-        </StackColumn>
-
-        <StackColumn>
-          <FooterTitle text={'our services'} />
-          <FooterLink text={'buy house'} />
-          <FooterLink text={'sell house'} />
-          <FooterLink text={'rent house'} />
-          <FooterLink text={'build house'} />
-        </StackColumn>
-        <StackColumn>
-          <FooterTitle text={'our company'} />
-          <FooterLink text={'reporting'} />
-          <FooterLink text={'get in touch'} />
-          <FooterLink text={'management'} />
-        </StackColumn>
-
-        <StackColumn>
-          <FooterTitle text={'hBSales'} />
-          <Stack
-            direction="row"
-            width="70px"
-            maxWidth="100%"
-            justifyContent="space-between"
-          >
-            <Link
-              href="#"
-              variant="body2"
-              sx={{
-                color: '#414141',
-                '&:hover': {
-                  color: '#1c2859',
-                },
-              }}
-            >
-              <InstagramIcon />
-            </Link>
-            <Link
-              href="#"
-              variant="body2"
-              sx={{
-                color: '#414141',
-                '&:hover': {
-                  color: '#1c2859',
-                },
-              }}
-            >
-              <FacebookIcon />
-            </Link>
-          </Stack>
-          <Typography variant="caption" component="p">
-            &copy; 2022 HBSales Inc.
-          </Typography>
+          <FooterTitle text={"Let's Gym"} />
+          <FooterLink text={'2024'} />
+          <FooterLink text={'0388903161'} />
+          <FooterLink text={'leminh308nk@gmail.com'} />
         </StackColumn>
       </BoxRow>
     </Box>

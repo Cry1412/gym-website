@@ -12,37 +12,32 @@ function GoogleMap() {
   useEffect(() => {
     const loadScripts = async () => {
       if (!window.google) {
-        // Nếu window.google không tồn tại, tức là API chưa được bao gồm
         const polyfillScript = document.createElement('script');
         polyfillScript.src = 'https://polyfill.io/v3/polyfill.min.js?features=default';
         document.head.appendChild(polyfillScript);
-  
+
         const markerClustererScript = document.createElement('script');
         markerClustererScript.src = 'https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js';
         document.head.appendChild(markerClustererScript);
-  
+
         const googleMapsApiScript = document.createElement('script');
         googleMapsApiScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD04tA6vhD43ywZgiG7FiisEKWuSXwDJiQ&loading=async&libraries=places&callback=initMap`;
         googleMapsApiScript.async = true;
         googleMapsApiScript.defer = true;
         document.head.appendChild(googleMapsApiScript);
-  
-        window.initMap = initMap; // Định nghĩa hàm initMap() khi API đã được tải xong
+
+        window.initMap = initMap;
       } else {
-        if (!window.initMap) {
-          // Nếu API đã được bao gồm nhưng hàm initMap() chưa được định nghĩa
-          window.initMap = initMap;
-        }
+        initMap();
       }
     };
-  
-    loadScripts(); // Gọi hàm loadScripts() khi component mount
-  
+
+    loadScripts();
+
     return () => {
-      delete window.initMap; // Xóa hàm initMap() khi component unmount
+      delete window.initMap;
     };
   }, []);
-  
 
   useEffect(() => {
     if (address && map) {
@@ -87,11 +82,6 @@ function GoogleMap() {
       mapId: "DEMO_MAP_ID",
     });
     setMap(map);
-    const autocomplete = new googleMaps.places.Autocomplete(inputRef.current);
-    autocomplete.addListener("place_changed", () => {
-      const selectedPlace = autocomplete.getPlace();
-      setAddressTemp(selectedPlace.formatted_address);
-    });
   };
 
   const handleAddressChange = (event) => {

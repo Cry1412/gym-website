@@ -92,14 +92,14 @@ const GetStarted = () => {
                 >
                     <Title
                     text={
-                        'Be the part of the fitness community'
+                        'Transform your body, unleash your potentia'
                         
                     }
                     textAlign={'start'}
                     />
                     <CustomTypography>
-                        Share your amazing results in the Sports Feed and ask questions<br /> 
-                        Meet the other community members, makes the app even more engaging.
+                        Embrace the grind, push your limits, and revel in the satisfying burn of progress<br /> 
+                        Let your passion for fitness fuel your journey to greatness
                     </CustomTypography>
                 </Box>
             </CustomGridItem>

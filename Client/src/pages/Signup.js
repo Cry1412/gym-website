@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,11 +13,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -37,12 +40,13 @@ export default function SignUp() {
       });
 
       if (!response.ok) {
-        throw new Error('Đã xảy ra lỗi khi đăng ký');
+        throw new Error('An error occurred while registering');
       }
-      navigate("/signin")
+      navigate("/signin");
       console.log('Đăng ký thành công');
     } catch (error) {
       console.error('Lỗi:', error.message);
+      setError(error.message); // Hiển thị cửa sổ tin nhắn lỗi
     }
   };
 
@@ -58,6 +62,11 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
+          {error && (
+            <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+              {error}
+            </Alert>
+          )}
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>

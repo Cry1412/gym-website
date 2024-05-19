@@ -66,8 +66,7 @@ const Header = () => {
                     color: '#fff',
                 }}
                 >
-                    We have 9000 more review and our customers
-                    trust on out property and quality products.
+                    Unleash your inner athlete, break barriers, and conquer new heights with every workout session.
                 </Typography>
 
                 <Box>
@@ -91,11 +90,11 @@ const Header = () => {
                         }
                     }}
                     >
-                        buy now
+                        Let's Start
                     </Button>
                     <Button 
                     component={Link} 
-                    to={'/about'}
+                    to={'/gyms'}
                     variant='outlined'
                     sx={{
                         px: 4, 
@@ -116,7 +115,7 @@ const Header = () => {
                         }
                     }}
                     >
-                        explore
+                        Gym near by
                     </Button>
                 </Box>
             </BoxText>

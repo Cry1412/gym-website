@@ -1,0 +1,715 @@
+{
+    "html_attributions": [],
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0295495,
+                    "lng": 105.8102609
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0309869302915,
+                        "lng": 105.8115899302915
+                    },
+                    "southwest": {
+                        "lat": 21.0282889697085,
+                        "lng": 105.8088919697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Curves Kim Mã",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 640,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116315714526830025722\">Trang Nguyễn</a>"
+                    ],
+                    "photo_reference": "ATplDJaZtdTmwshDh_wF_ujg8YOQ2nGfDKgUKvkAZ8KyjNcmDMg7OXUvaspuXEXUK4dQLu-H9bLchCLuGqmH_lciJvhhw8FIxUC4VBYt8nY8NloaP8PS5vb01acJvDGWmtSkW8R7k30RCeEapxcSM2yn9aQEYXqKCKf89RUCdZaKzYWxXq5h",
+                    "width": 960
+                }
+            ],
+            "place_id": "ChIJ_6HZ6GurNTERDynEhiibiNk",
+            "plus_code": {
+                "compound_code": "2RH6+R4 Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH6+R4"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ_6HZ6GurNTERDynEhiibiNk",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 23,
+            "vicinity": "Phòng 102, tòa nhà DMC, 535 Phố Kim Mã, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0286784,
+                    "lng": 105.8106879
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.02999683029151,
+                        "lng": 105.8120388802915
+                    },
+                    "southwest": {
+                        "lat": 21.0272988697085,
+                        "lng": 105.8093409197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Pilateez 101 By Ly",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113714425308126306759\">Pilateez 101 By Ly</a>"
+                    ],
+                    "photo_reference": "ATplDJbmXhj8zEaXtJTIzMBHtlk1_gttDvEQ51LtSyA0B11JRWCDiLVief3TbGasW5kJzDd985bJdEqSBJmypJw4BIVNEfOrwpjq5-9TaITBa8hKXN_Kw7X8BK9hZjILaAyUXzZ3TcH1hw-AeNtIVYwFSkP5oblr7gLUb7gPnQFYbyquGVd7",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJa0TyurarNTERz0xD-KE9tNk",
+            "plus_code": {
+                "compound_code": "2RH6+F7 Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH6+F7"
+            },
+            "rating": 5,
+            "reference": "ChIJa0TyurarNTERz0xD-KE9tNk",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4,
+            "vicinity": "ngách 19 Ngõ 535 Phố Kim Mã, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0311,
+                    "lng": 105.8136648
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0324486302915,
+                        "lng": 105.8150136802915
+                    },
+                    "southwest": {
+                        "lat": 21.02975066970849,
+                        "lng": 105.8123157197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "King Fitness Liễu Giai",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 975,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117988203504550750125\">King Fitness Liễu Giai</a>"
+                    ],
+                    "photo_reference": "ATplDJaVI0vSDYeTEL2kvSRhUcsgUR3-9ibqvBlC-cC3ay0MqN1cJA8bnRBZGkJZFbz5qb0aI2unjeVuyPCDWSNW9ZlEAlCRbOZn85YjySK9Chh9pYAlQk1vla3TL0_xzdPfv9OW4Mqm0nw34NoG4goNXITvnrtG-V5wrKTkISJsx6HjCJag",
+                    "width": 2560
+                }
+            ],
+            "place_id": "ChIJr7-NslSrNTERb76SG61amx8",
+            "plus_code": {
+                "compound_code": "2RJ7+CF Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RJ7+CF"
+            },
+            "reference": "ChIJr7-NslSrNTERb76SG61amx8",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Vinhomes Metropolis, Tòa M1, 29 Phố Liễu Giai, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0311,
+                    "lng": 105.8136648
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0324486302915,
+                        "lng": 105.8150136802915
+                    },
+                    "southwest": {
+                        "lat": 21.02975066970849,
+                        "lng": 105.8123157197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "AK Fitness and Yoga Capital Place",
+            "opening_hours": {
+                "open_now": false
+            },
+            "place_id": "ChIJ1yjLRfarNTERpptEsva42M4",
+            "plus_code": {
+                "compound_code": "2RJ7+CF Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RJ7+CF"
+            },
+            "reference": "ChIJ1yjLRfarNTERpptEsva42M4",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "Capital Place, 29 Phố Liễu Giai, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0293757,
+                    "lng": 105.8102282
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0307313302915,
+                        "lng": 105.8116464302915
+                    },
+                    "southwest": {
+                        "lat": 21.0280333697085,
+                        "lng": 105.8089484697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Into Pilates Vietnam",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100112646351994526671\">Into Pilates Vietnam</a>"
+                    ],
+                    "photo_reference": "ATplDJaBE29g5Twm7sdfh3u2tbT6Zqhd2DRe6jBVHIm2FdngSzMIQXBk6HCa3Queqpitw_4IgF0D--6bs8UN3_1jl8r_Mb3D_nkIAUVdMi_vGBaGMQSi4KcfAzQz9Te8PR55k7v-4Hj7lM7_3ZISit1nhMTkZE5u1HkUvWIV5FtJbLfNE6A1",
+                    "width": 1300
+                }
+            ],
+            "place_id": "ChIJKfpl1MCrNTERoCfD7Pd_mxo",
+            "plus_code": {
+                "compound_code": "2RH6+Q3 Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH6+Q3"
+            },
+            "reference": "ChIJKfpl1MCrNTERoCfD7Pd_mxo",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "alley 535/19 Phố Kim Mã, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0288362,
+                    "lng": 105.8096059
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0301720802915,
+                        "lng": 105.8107946802915
+                    },
+                    "southwest": {
+                        "lat": 21.0274741197085,
+                        "lng": 105.8080967197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Yoga W Studio",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115756885300888176378\">Yoga W Studio</a>"
+                    ],
+                    "photo_reference": "ATplDJaBjQoWZV0JVkO8jF2ZKMLka2O0UH5_rsprtKZoS48Cp0KW7uciCEn9eOj7i_HJWelcD9zKLHJxHTbSzKexqeMJXAXzzZLtw8fp1itv4om_je20p0-c24W336-6n4zuE9xmFrL1oVhvrD6zECRyd8sW-WFYRO5nN5QgOuT3Z29_YddL",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ7QF_5N2rNTERFLzWWEDn2NA",
+            "plus_code": {
+                "compound_code": "2RH5+GR Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH5+GR"
+            },
+            "rating": 5,
+            "reference": "ChIJ7QF_5N2rNTERFLzWWEDn2NA",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9,
+            "vicinity": "17 Ngõ 575 Phố Kim Mã, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0321778,
+                    "lng": 105.8124576
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0333622302915,
+                        "lng": 105.8138756302915
+                    },
+                    "southwest": {
+                        "lat": 21.03066426970849,
+                        "lng": 105.8111776697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "MBS Pilates - Lotte",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108372699995689989734\">Van Bach</a>"
+                    ],
+                    "photo_reference": "ATplDJaV0Rfw1J3BoGV7fbKP90ieF7RFQh4NQlnhCFziMy3Bbv-0psZBlEwXNho_vpQDfynC0DRrg2oeRnKrYpYWkQr7g_j4xlnkD_1fp7_1YEVa_2Ts76qIQ8Fs9YegvZS_XAIqQ3sqi-d3yr58oxk2h0vm9bky4gU97OBN5eTKtvt3G5aa",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJG2y9k3yrNTERo0V8OqnGvEM",
+            "plus_code": {
+                "compound_code": "2RJ6+VX Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RJ6+VX"
+            },
+            "rating": 5,
+            "reference": "ChIJG2y9k3yrNTERo0V8OqnGvEM",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4,
+            "vicinity": "54 Lotte Center Hanoi Road, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0318886,
+                    "lng": 105.8146184
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0332692302915,
+                        "lng": 105.8159553302915
+                    },
+                    "southwest": {
+                        "lat": 21.0305712697085,
+                        "lng": 105.8132573697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Pilates Lab",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3333,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110316413362861287428\">Pilates Lab</a>"
+                    ],
+                    "photo_reference": "ATplDJbaZ0L0n7d25YHut9t6ioBIo1xQoE1qcZnEiK0iIC4FqRD0MlIc80N5qb_4-r9TD6MzvRU7cSS6vH-8PEfDcIzf2Hs6uFydhnEm2fhWkBzFfXE5W5B_nWnWkjZ67TSZfUYh8YjJ3esr3vuF5qCIPgOBOtd1yrVslEcFJ9ZI4WIjRf6h",
+                    "width": 4999
+                }
+            ],
+            "place_id": "ChIJQ2X5GAatNTERVDcuKVeuoKY",
+            "plus_code": {
+                "compound_code": "2RJ7+QR Hanoi, Vietnam",
+                "global_code": "7PH72RJ7+QR"
+            },
+            "rating": 2.4,
+            "reference": "ChIJQ2X5GAatNTERVDcuKVeuoKY",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20,
+            "vicinity": "Phố Liễu Giai, Vincom Metropolis, Phố Liễu Giai"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0262811,
+                    "lng": 105.8110047
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0277285802915,
+                        "lng": 105.8123735302915
+                    },
+                    "southwest": {
+                        "lat": 21.0250306197085,
+                        "lng": 105.8096755697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Pilates House Hanoi",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117143095316633380430\">Pilates House Hanoi</a>"
+                    ],
+                    "photo_reference": "ATplDJaTkuQ1-HF93wwbdymJoQQbc6buVcvUKh3OMXP3MFXoyvZ0f3R9XEIVGelv16rPH4PWRkoRDxj8-bWtXW97tGCPhUe37fSR3pgNd1SNIw7DaoXxA5vgxR9VuGP2MuY4zbQS7AKnve_m-qF14fiCAKey3G6eK8wUfekRhYF-d2fWZgRk",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJg2z80nCrNTERoESC3wmQXtI",
+            "plus_code": {
+                "compound_code": "2RG6+GC Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RG6+GC"
+            },
+            "rating": 5,
+            "reference": "ChIJg2z80nCrNTERoESC3wmQXtI",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 28,
+            "vicinity": "2601 Phố Phạm Huy Thông, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.02769469999999,
+                    "lng": 105.8092887
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0289416802915,
+                        "lng": 105.8105665302915
+                    },
+                    "southwest": {
+                        "lat": 21.0262437197085,
+                        "lng": 105.8078685697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Transform Fitness",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1926,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105791130649926928579\">Huy Hoàng Nguyễn</a>"
+                    ],
+                    "photo_reference": "ATplDJb0QgHL7mTvigQX1jH0TsjU5R_7_CV3Ps82wjKnWX-EZLqInRWSlaxamv4aTnkB2B25KJMPk8LwvRjqQZqgfkeVRTlGnmRLFSAZUx7LaUSXd8pcFhMtAvVO5o3dUOF8gnMNHYF4ob19tZU53aLiAZj3PQd0ntZrkNbREOlvjN-MD1cp",
+                    "width": 2568
+                }
+            ],
+            "place_id": "ChIJD4ZjHgCrNTERkhaqN_xKg1w",
+            "plus_code": {
+                "compound_code": "2RH5+3P Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH5+3P"
+            },
+            "rating": 5,
+            "reference": "ChIJD4ZjHgCrNTERkhaqN_xKg1w",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7,
+            "vicinity": "Chung cư Biển Bắc, 1070 Đường La Thành, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0302923,
+                    "lng": 105.8164247
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0316374802915,
+                        "lng": 105.8177425302915
+                    },
+                    "southwest": {
+                        "lat": 21.0289395197085,
+                        "lng": 105.8150445697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Zenith Yoga Kim Mã",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1151,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113418167739799358773\">Zenith Yoga Kim Mã</a>"
+                    ],
+                    "photo_reference": "ATplDJZ357Di5IWfAinZKgEsnElkyF2XbqQlxZHZxYmnZlkX78KnasFMJrMrXmiRGBHj36dn1VcJWGutRJYpjPfkfk4RNt7Sl5T-SyBdXnBvg67kDozT7FFfZa3EGD8WcnT5OL6TtTzmERAaifroLFP5Ph1-Fkcw7WZP4-NG2t65EmkGwWsz",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJsebqkG2rNTERgxBqKEitgeA",
+            "plus_code": {
+                "compound_code": "2RJ8+4H Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RJ8+4H"
+            },
+            "rating": 4.7,
+            "reference": "ChIJsebqkG2rNTERgxBqKEitgeA",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 18,
+            "vicinity": "6 Flr, No. 2, 371 Kim Ma, Ba Dinh , Ha Noi, Tầng 6, Nhà số 2, Ngõ 371 Kim Mã, Ba Đình , Hà Nội"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.02819329999999,
+                    "lng": 105.8168603
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0295779802915,
+                        "lng": 105.8181667802915
+                    },
+                    "southwest": {
+                        "lat": 21.0268800197085,
+                        "lng": 105.8154688197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Saraswati Yoga studio",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2573,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104140920225369203856\">Saraswati Yoga studio</a>"
+                    ],
+                    "photo_reference": "ATplDJay8gOgizZlTHR1r-R1x8R8Z-6OGL_dOucyf2T2CCoDdt-9ZpcPG5GwbUDHC7CbrSpE6Np3TdjPC3QPFl3SQSAcyH9h9jdYzAQi1YohR7v6F3h-9sq5Z6eWb4h7XcWYix2yg9Vdac3JI-vB1ZHBM4ruNi1K63cPnRPW6IrpTZed-agp",
+                    "width": 4299
+                }
+            ],
+            "place_id": "ChIJj0mIiq2rNTERp76fnfaDToo",
+            "plus_code": {
+                "compound_code": "2RH8+7P Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH8+7P"
+            },
+            "rating": 5,
+            "reference": "ChIJj0mIiq2rNTERp76fnfaDToo",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "55A Ngõ 409 Kim Mã, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.02978869999999,
+                    "lng": 105.8172708
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0311436802915,
+                        "lng": 105.8186603802915
+                    },
+                    "southwest": {
+                        "lat": 21.02844571970849,
+                        "lng": 105.8159624197085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Phòng tập Private GYM RAT- The Rooftop- 28 Ngọc Khánh",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108588181881233022300\">Phòng tập GYM RAT- The Rooftop- The Private Gym</a>"
+                    ],
+                    "photo_reference": "ATplDJaE7arhUvpwN4fRavUysl9Mr-hNS9KzzgmYRbZoDbn_c9uZttsaukQAGOyFFcwwq1mKF7lnb5HxFmLqU6GCkt00t299LTc2VL4zOe64m5ckYnqhjxHv-70SEE1C05iMUvI10XB9jzEi3_XPFXqWshpv8K34jaCCygEBSGYDa6ADHF0P",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJdUAGcy2rNTER7qBhz3KAZ6s",
+            "plus_code": {
+                "compound_code": "2RH8+WW Ba Đình, Hanoi, Vietnam",
+                "global_code": "7PH72RH8+WW"
+            },
+            "rating": 5,
+            "reference": "ChIJdUAGcy2rNTER7qBhz3KAZ6s",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "ngõ 28 Phố Ngọc Khánh, Ngọc Khánh"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 21.0258769,
+                    "lng": 105.8095371
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 21.0272738302915,
+                        "lng": 105.8109538302915
+                    },
+                    "southwest": {
+                        "lat": 21.0245758697085,
+                        "lng": 105.8082558697085
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+            "name": "Trung tâm Amazon Kickfit - Hiit",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113999336790088938755\">Lê Quang Thanh</a>"
+                    ],
+                    "photo_reference": "ATplDJaa2NOP3hpnWQbdZDeqGnl8NFKtJjGNv0UHqFnC2v7ZmzUbPrvHMb42hBp-oWXaE52c4s4v7CTSv5WjFyBTYNey3B2KNI97wr0SxVIr7-6NL5RuqDr54vJv8UXVW730hZaECGLrYGcfUuevuTBaZxXeO3fa4CZS2Zu2tlrQ0spW6S8b",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJc1pY7n2rNTERN1Cqm3kDaWM",
+            "plus_code": {
+                "compound_code": "2RG5+9R Đống Đa, Hanoi, Vietnam",
+                "global_code": "7PH72RG5+9R"
+            },
+            "rating": 5,
+            "reference": "ChIJc1pY7n2rNTERN1Cqm3kDaWM",
+            "scope": "GOOGLE",
+            "types": [
+                "gym",
+                "health",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "61E dốc Bệnh viện Nhi Trung Ương, 879 Đường La Thành, Láng Thượng"
+        }
+    ],
+    "status": "OK"
+}

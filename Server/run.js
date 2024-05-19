@@ -1,12 +1,16 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken'); 
+const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+//import fetch from "node-fetch";
 
 const app = express();
 app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -44,9 +48,6 @@ app.get("/exercises/:exerciseName", (req, res) => {
     return res.json(data);
   });
 });
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Đăng ký người dùng
 app.post('/signup', async(req, res) => {
@@ -148,43 +149,6 @@ app.post('/create-month-exercises', authenticateToken, (req, res) => {
   });
 });
 
-
-// app.post('/signin', (req, res) => {
-//   const { username, password } = req.body;
-
-//   // Kiểm tra xem các trường đã được cung cấp chưa
-//   if (!username || !password) {
-//     return res.status(400).json({ message: 'Vui lòng cung cấp tên đăng nhập và mật khẩu' });
-//   }
-
-//   // Kiểm tra xem người dùng tồn tại trong cơ sở dữ liệu không
-//   db.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, results) => {
-//     if (err) {
-//       throw err;
-//     }
-
-//     if (results.length === 0) {
-//       return res.status(401).json({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác' });
-//     } else {
-//       return res.status(200).json({ message: 'Đăng nhập thành công' });
-//     }
-//   });
-// });
-
-// app.get('/test', (req, res) => {
-//   // Thực hiện truy vấn SQL
-//   connection.query('SELECT e.Name FROM exercises_in_dayset ed JOIN Exercises e ON ed.Exercise_ID = e.Exercise_ID WHERE ed.Dayset_ID = 1', (err, results) => {
-//     if (err) {
-//       console.error('Lỗi truy vấn SQL:', err);
-//       res.status(500).send('Đã xảy ra lỗi khi thực hiện truy vấn SQL');
-//       return;
-//     }
-
-//     // Gửi kết quả trả về dưới dạng JSON
-//     res.json(results);
-//   });
-// });
-
 app.get("/test", (req, res) => {
   const sql = "SELECT e.Name FROM exercises_in_dayset ed JOIN Exercises e ON ed.Exercise_ID = e.Exercise_ID WHERE ed.Dayset_ID = 1";
   db.query(sql, (err, data) => {
@@ -193,26 +157,121 @@ app.get("/test", (req, res) => {
   });
 });
 
+app.post("/test2", authenticateToken, (req, res) => {
+  const userId = req.user.User_ID;
+  const sql = `
+SELECT
+    DATE_ADD(ut.Starting_date, INTERVAL (d.Dayset_ID - 1) DAY) AS Day_Name,
+    e.Name AS Exercise_Name
+FROM
+    gymwebsite.user_tracking ut
+JOIN gymwebsite.monthset m ON ut.Monthset_ID = m.Monthset_ID
+JOIN gymwebsite.dayset_in_monthset dm ON ut.Monthset_ID = dm.FK_Monthset_ID
+JOIN gymwebsite.dayset d ON dm.FK_Dayset_ID = d.Dayset_ID
+JOIN gymwebsite.exercises_in_dayset ed ON d.Dayset_ID = ed.Dayset_ID
+JOIN gymwebsite.exercises e ON ed.Exercise_ID = e.Exercise_ID
+WHERE
+    ut.User_ID = ${userId};
+`;
+  db.query(sql, (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
+  });
+});
+
+app.get("/gyms/:gymName", (req, res) => {
+  const urlName = req.params.gymName; // Lấy tên bài tập từ URL
+  const exerciseName = convertExerciseName(urlName); // Chuyển đổi tên bài tập
+  const sql = `
+  SELECT 
+      gyms.Name, 
+      gyms.Address, 
+      gyms.Slogan, 
+      GROUP_CONCAT(DISTINCT services.Name) AS Services,
+      GROUP_CONCAT(images.Source) AS Images
+  FROM 
+      gymwebsite.gyms AS gyms
+  LEFT JOIN 
+      gymwebsite.gym_service AS gym_service ON gyms.Gym_ID = gym_service.FK_Gym_ID
+  LEFT JOIN 
+      gymwebsite.services AS services ON gym_service.FK_Service_ID = services.Service_ID
+  LEFT JOIN 
+      gymwebsite.images AS images ON gyms.Gym_ID = images.Gym_ID
+  WHERE 
+      gyms.Name = ?
+  GROUP BY 
+      gyms.Gym_ID;
+`;
+  db.query(sql, [exerciseName], (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
+  });
+});
+
+app.get("/gym", (req, res) => {
+  const sql = `
+    SELECT 
+      gyms.Name AS Name, 
+      gyms.Address, 
+      gyms.Slogan, 
+      GROUP_CONCAT(DISTINCT services.Name) AS Services,
+      SUBSTRING_INDEX(GROUP_CONCAT(DISTINCT images.Source), ',', 1) AS Image
+    FROM 
+      gymwebsite.gyms AS gyms
+    LEFT JOIN 
+      gymwebsite.gym_service AS gym_service ON gyms.Gym_ID = gym_service.FK_Gym_ID
+    LEFT JOIN 
+      gymwebsite.services AS services ON gym_service.FK_Service_ID = services.Service_ID
+    LEFT JOIN 
+      gymwebsite.images AS images ON gyms.Gym_ID = images.Gym_ID
+    GROUP BY 
+      gyms.Gym_ID;
+  `;
+  db.query(sql, (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
+  });
+});
+
+app.post('/health', authenticateToken, (req, res) => {
+  // Lấy thông tin từ request body
+  const { gender, weight, height, age, pushups } = req.body;
+
+  // Lấy userId từ req.user.User_ID (giả sử đã được xác thực trước đó)
+  const userId = req.user.User_ID;
+
+  // Query SQL để thêm hoặc cập nhật dữ liệu vào cơ sở dữ liệu
+  const sql = `
+    INSERT INTO gymwebsite.body_index (FK_User_ID, Gender, Weight, Height, Age, Pushups)
+    VALUES (?, ?, ?, ?, ?, ?)
+    ON DUPLICATE KEY UPDATE
+    Gender = VALUES(Gender),
+    Weight = VALUES(Weight),
+    Height = VALUES(Height),
+    Age = VALUES(Age),
+    Pushups = VALUES(Pushups)
+  `;
+  db.query(sql, [userId, gender, weight, height, age, pushups], (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
+  });
+})
+
+app.get('/checklogin', authenticateToken, (req, res) => {
+  // Lấy userId từ req.user.User_ID (giả sử đã được xác thực trước đó)
+  const userId = req.user.User_ID;
+
+  // Query SQL để thêm hoặc cập nhật dữ liệu vào cơ sở dữ liệu
+  const sql = `
+    SELECT Pushups FROM gymwebsite.body_index
+    Where FK_User_ID = ?;
+  `;
+  db.query(sql, [userId], (err, data) => {
+    if (err) return res.json("Error");
+    return res.json(data);
+  });
+})
+
 app.listen(2000, () => {
   console.log("Running...");
 })
-
-// const express = require('express');
-// const mysql = require('mysql2');
-
-// const app = express();
-// const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "s0ctho1881",
-//   database: "gymwebsite"
-// });
-
-// // Kết nối đến cơ sở dữ liệu
-// db.connect((err) => {
-//   if (err) {
-//     console.error('Error connecting to database:', err);
-//     return;
-//   }
-//   console.log('Connected to database');
-// });

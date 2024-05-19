@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,11 +13,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -36,18 +39,19 @@ export default function SignIn() {
       });
 
       if (!response.ok) {
-        throw new Error('Đăng nhập không thành công');
+        throw new Error('Your username or password is incorrect, please check again');
       }
-      
+
       console.log('Đăng nhập thành công');
-      const responseData = await response.json()
-      const token = responseData.token
+      const responseData = await response.json();
+      const token = responseData.token;
       localStorage.setItem('token', token);
-      console.log(responseData)
-      navigate("/")
+      console.log(responseData);
+      navigate("/userselect");
       // Redirect or do other actions after successful sign in
     } catch (error) {
       console.error('Lỗi:', error.message);
+      setError(error.message); // Hiển thị cửa sổ tin nhắn lỗi
     }
   };
 
@@ -63,6 +67,11 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
+          {error && (
+            <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+              {error}
+            </Alert>
+          )}
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>

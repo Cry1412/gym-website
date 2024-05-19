@@ -12,7 +12,6 @@ const FooterLink = ({ text }) => {
       fontWeight: '400',
       textDecoration: 'none',
       color: '#414141',
-      textTransform: 'capitalize',
       "&:hover": {
         color: '#1c2859',
       }

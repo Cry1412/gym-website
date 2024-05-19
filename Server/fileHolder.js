@@ -25,7 +25,7 @@ async function fetchData(name) {
 
     //const executionValue = $('.exo-info div:nth-child(1) p').nextUntil('h3').text().trim();
     //const executionValue = $('.exo-info div:nth-child(1) p').nextUntil('h3').text().trim();
-    const equipmentValue = $('.exo-info div:nth-child(2) span').text().trim();
+    const equipmentValue = $('.exo-info div:nth-child(2) h3:contains("Equipment required")').next('span').text().trim();
     const mainMusclesValue = $('.exo-info div:nth-child(2) span a').first().text().trim();
     const secondaryMusclesValue = $('.exo-info div:nth-child(2) span a').slice(1).map((i, el) => $(el).text()).get().join(', ');
     //const imageValue = $('header img').attr('src');
@@ -62,7 +62,7 @@ async function run() {
 
   // Lưu dữ liệu vào tệp final.txt
   const jsonData = JSON.stringify(finalData, null, 2);
-  fs.writeFileSync('final.txt', jsonData, 'utf8');
+  fs.writeFileSync('final1.txt', jsonData, 'utf8');
   console.log('All data has been written to final.txt successfully!');
 }
 

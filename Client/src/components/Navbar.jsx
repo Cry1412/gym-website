@@ -32,12 +32,8 @@ const itemList = [
         to: "/" 
     },
     {
-        text: "About",
-        to: "/about"
-    },
-    {
-        text: "Contact",
-        to: "/contact"
+        text: "Gym",
+        to: "/gyms"
     },
     {
         text: "Signin",
@@ -54,7 +50,7 @@ export default function Navbar() {
     const isLoggedIn = !!token;
     const navigate = useNavigate()
     
-    //console.log(isLoggedIn)
+    //console.log(token)
 
 
     const handleLogoutClick = () => {
@@ -87,7 +83,7 @@ export default function Navbar() {
                         // Kiểm tra điều kiện để thay đổi nút
                         if (text === "Signin" && isLoggedIn) {
                             item.text = "Exercise";
-                            item.to = "/exercise";
+                            item.to = "/calendar";
                         } else if (text === "Signup" && isLoggedIn) {
                             item.text = "Logout";
                             item.to = "/";

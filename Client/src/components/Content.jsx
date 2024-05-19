@@ -13,12 +13,26 @@ import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRou
 import FastfoodOutlinedIcon from '@mui/icons-material/FastfoodOutlined';
 import PoolOutlinedIcon from '@mui/icons-material/PoolOutlined';
 import WifiPasswordIcon from '@mui/icons-material/WifiPassword';
+import SportsMmaOutlinedIcon from '@mui/icons-material/SportsMmaOutlined';
+import SelfImprovementOutlinedIcon from '@mui/icons-material/SelfImprovementOutlined';
+import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
+import SportsMartialArtsOutlinedIcon from '@mui/icons-material/SportsMartialArtsOutlined';
+import EmojiPeopleOutlinedIcon from '@mui/icons-material/EmojiPeopleOutlined';
 // components
 import Title from './Title'
 import Paragraph from './Paragraph'
 
+const serviceIcons = {
+    Gym: <FitnessCenterOutlinedIcon fontSize="large" color="secondary" />,
+    Yoga: <SelfImprovementOutlinedIcon fontSize="large" color="secondary" />,
+    Boxing: <SportsMmaOutlinedIcon fontSize="large" color="secondary" />,
+    "Swimming Pool": <PoolOutlinedIcon fontSize="large" color="secondary" />,
+    Zumba: <EmojiPeopleOutlinedIcon fontSize="large" color="secondary" />,
+};
 
-const Content = () => {
+const Content = ({ gym }) => {
+    const { Name, Slogan, Address, Services } = gym[0];
+    const availableServices = Services.split(',');
   return (    
         <Grid container spacing={0}   
         sx={{
@@ -35,7 +49,7 @@ const Content = () => {
             >
                 <Title
                 text={
-                    'What we are offering?'
+                    gym[0].Name
                 }
                 textAlign={'start'}
                 />
@@ -48,14 +62,12 @@ const Content = () => {
                     paddingTop: 1,
                 }}
                 >
-                    Property facilities
+                    {gym[0].Slogan}
                 </Typography>
 
                 <Paragraph 
                 text={
-                    ' We have more 5000 reviews\
-                    and our customers trust on out quality\
-                    product and trust own our product.'
+                    gym[0].Address
                 }
                 maxWidth = {'75%'}
                 mx={0}
@@ -63,192 +75,40 @@ const Content = () => {
                 />
             </Grid>
             
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    border: '1px solid #ccc',
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <SportsGymnasticsIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        gym
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc'
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <LocalParkingIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        parking
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={2}
-            sx={{
-                display: {xs: 'none', sm: 'block'},
-            }}  
-            >
-                <Card 
-                square={ true }
-                sx={{ 
-                    boxShadow: 'none',
-                    minHeight: 180,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                }}>
-                    <CardContent>
-                        <ArrowCircleRightRoundedIcon
-                        fontSize="large"
-                        color="secondary" />
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>    
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc'
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <FastfoodOutlinedIcon
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        local dining
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',                    
-                    border: '1px solid #ccc',
-                }}
-                >
-                    <CardContent>
-                        <IconButton>
-                            <PoolOutlinedIcon 
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        swimming pool
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={3}>
-                <Card 
-                square={ true }
-                sx={{ 
-                    minHeight: 200,
-                    display: 'flex',
-                    flexDirection:'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center', 
-                    border: '1px solid #ccc',
-                }}>
-                    <CardContent>
-                        <IconButton>
-                            <WifiPasswordIcon
-                            fontSize="large"
-                            color="secondary" />
-                        </IconButton>
-                        <Typography 
-                        variant="h5" 
-                        component="p"
-                        sx={{
-                            fontWeight: 700,
-                            textTransform: 'capitalize',
-                        }}
-                        >
-                        Internet
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid> 
+            {/* Render cards for each service */}
+            {availableServices.map(service => (
+                <Grid key={service} item xs={12} sm={6} md={3}>
+                    <Card square={true} sx={{
+                        ':hover': {
+                            boxShadow: 20, // theme.shadows[20]
+                        },
+                        minHeight: 200,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        border: '1px solid #ccc',
+                    }}>
+                        <CardContent>
+                            {/* Render IconButton only if service icon is available */}
+                            {serviceIcons[service] && (
+                                <IconButton>
+                                    {serviceIcons[service]}
+                                </IconButton>
+                            )}
+                            <Typography variant="h5" component="p" sx={{
+                                fontWeight: 700,
+                                textTransform: 'capitalize',
+                            }}>
+                                {service}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>
+            ))}
         </Grid>
-    );
+    ); 
 }
 
-export default Content
+export default Content;
